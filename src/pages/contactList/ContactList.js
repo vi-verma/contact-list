@@ -26,7 +26,7 @@ const ContactList = () => {
 
   return (
     <div>
-      {contactList.map((item) => (
+      {contactList?.map((item) => (
         <Card
           editContact={editContact}
           deleteContact={deleteContact}
