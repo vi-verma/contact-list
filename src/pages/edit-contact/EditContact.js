@@ -82,7 +82,6 @@ function EditContact({ data }) {
             name="avatar"
             id="actual-btn"
             hidden
-            // value={imageUpload}
             onChange={(e) => setImageUpload(e.target.files[0])}
           />
           <label htmlFor="actual-btn">
