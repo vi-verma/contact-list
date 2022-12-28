@@ -1,0 +1,31 @@
+:root{
+  background: rgb(3, 3, 29);
+  color: wheat;
+}
+  .addContactButton {
+    /* max-width: 280px; */
+    background: rgba(30, 125, 175, 0.686);
+    width:300px;
+    height: 40px;
+    margin-left: 15%;
+    margin-top: 15px;
+    border-radius: 18PX;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #fff;
+}
+
+.addContactButton:hover {
+    background: rgba(61, 127, 163, 0.686);
+    border-radius: 18PX;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.addContactButton:active {
+    background: rgb(184, 227, 184);
+}

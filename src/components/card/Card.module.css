@@ -1,0 +1,24 @@
+.card{
+    padding: 12px;
+    margin: 18px;
+    border-radius: 12px;
+    background: rgb(66, 66, 79);
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 6px;
+
+}
+.name{
+
+}
+.contact{
+    font-size: 12px;
+}
+.contactType{
+    font-size: 12px;
+}
+.whatsappImg{
+    font-size: 12px;
+}
