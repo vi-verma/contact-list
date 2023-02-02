@@ -3,11 +3,12 @@ import styles from "./EditContact.module.css";
 import avatar from "../../assets/user-avatar.jpg";
 import UploadImage from "../../components/uploadImageComponent/UploadImage";
 import { storage } from "../../firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 function EditContact({ data }) {
   const [state, setState] = useState({});
+  const [uploadedImageUrl, setUploadedImageUrl] = useState('')
   const [imageUpload, setImageUpload] = useState({});
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -20,6 +21,15 @@ function EditContact({ data }) {
     let foundData = prevContactList.filter(
       (el) => el.name === searchParams.get("name")
     );
+
+    const imageRef = ref(storage, `images/${searchParams.get("name")}`);
+    getDownloadURL(imageRef)
+      .then((url) => {
+        // setLoding(false);
+        setUploadedImageUrl(url);
+      })
+      .catch((error) => console.error(error));
+
     setState(foundData[0]);
 
     console.log("param", searchParams.get("name"));
@@ -28,7 +38,10 @@ function EditContact({ data }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (state?.contactNumber.length < 1) return;
+    if (state?.contactNumber.length !== 10){
+      alert("Contact number should be 10 digits number.");
+      return;
+    };
     if (imageUpload == null || imageUpload == "") {
       alert("Select image to upload.");
       return;
@@ -46,7 +59,10 @@ function EditContact({ data }) {
       "contactList",
       JSON.stringify([...prevContactList])
     );
-    navigate("/");
+
+    if(!imageUpload){
+      navigate("/");
+    }
   };
 
   const onUserInput = (e) => {
@@ -85,7 +101,7 @@ function EditContact({ data }) {
             onChange={(e) => setImageUpload(e.target.files[0])}
           />
           <label htmlFor="actual-btn">
-            <img className={styles.avatar} src={avatar} alt="user image" />
+            <img className={styles.avatar} src={uploadedImageUrl || avatar} alt="user image" />
           </label>
         </div>
         <div className={styles.name}>

@@ -5,19 +5,25 @@
     justify-content: center;
     background: #032541;
 }
+.title{
+    line-height: 0;
+    margin: 10px auto;
+}
 .avatar{
+    position: relative;
     height: 60px;
     width: 60px;
     border-radius: 50px;
     /* margin: auto; */
     align-items: center;
     justify-content: center;
-    margin-left: 8vw;
+    margin-left:40%;
 }
 
 .addContactForm {
     min-width: 340px;
-    height: 60vh;
+    /* height: 60vh; */
+    min-height: 64vh;
     width: 30vw;
     border-radius: 12px;
     margin: auto;

@@ -1,7 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Card from './components/card/Card';
-import UserDetailCard from './components/detailCard/UserDetailCard';
 import Layout from './components/layout/Layout';
 import AddContact from './pages/add-contact';
 import ContactList from './pages/contactList/ContactList';
@@ -17,10 +15,6 @@ function App() {
         <Route path="edit-contact" element={ <EditContact/> } />
         {/* </Layout> */}
       </Routes>
-     {/* <Card /> */}
-     {/* <UploadImage /> */}
-      {/* <AddContact /> */}
-     {/* <UserDetailCard />  */}
     </div>
   );
 }

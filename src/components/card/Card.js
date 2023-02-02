@@ -5,21 +5,21 @@ import delImg from "../../assets/garbage-bin.svg";
 import editImg from "../../assets/editImg.png";
 
 const Card = (props) => {
-  let { contactNumber, isWhatsapp, name, type, } = props.detail;
-
+  let { contactNumber, isWhatsapp, name, type, url } = props.detail;
+console.log("props",props)
   return (
     <div key={contactNumber} className={styles.card}>
       <img
-        src={avatar}
+        src={url || avatar}
         alt="user image"
         style={{ width: "70px", borderRadius: "50px" }}
       />
       <div>
-        <p className={styles.name}> Name : {name || "Vivek Verma"}</p>
+        <p className={styles.name}> Name : {name || "--"}</p>
         <p className={styles.contact}>
-          Contact No : {contactNumber || "9934343434"}
+          Contact No : {contactNumber || "--"}
         </p>
-        <p className={styles.contactType}>Type : {type || "presonal"}</p>
+        <p className={styles.contactType}>Type : {type || "--"}</p>
         <div className={styles.whatsappimg}>
           {isWhatsapp && (
             <img
